@@ -24,17 +24,16 @@ public class BookAppointment {
         this.reservedAt = reservedAt;
     }
 
-    public static BookAppointment newBookAppointment(UUID slotId, UUID patientId, String patientName, IGetAvailableSlots availableSlotsProvider) {
+    public static BookAppointment newBookAppointment(UUID slotId, UUID patientId, String patientName, Date reservedAt ,IGetAvailableSlots availableSlotsProvider ) {
         UUID id = UUID.randomUUID();
-        Date reservedAt = new Date();
-        UUID validatedSlotId = validateSlot(slotId, availableSlotsProvider);
+        UUID validatedSlotId = validateSlot(slotId ,reservedAt ,availableSlotsProvider);
         var bookAppointment = new BookAppointment(id, validatedSlotId, patientId, patientName, reservedAt);
         bookAppointment.events.add(ReserveSlot.of(bookAppointment));
         return bookAppointment;
     }
 
-    private static UUID validateSlot(UUID slotId, IGetAvailableSlots availableSlotsProvider) {
-        ValidateSlot validatedSlot = ValidateSlot.of(slotId, availableSlotsProvider);
+    private static UUID validateSlot(UUID slotId, Date reservedAt , IGetAvailableSlots availableSlotsProvider) {
+        ValidateSlot validatedSlot = ValidateSlot.of(slotId ,reservedAt ,availableSlotsProvider);
         return validatedSlot.slotId();
     }
 

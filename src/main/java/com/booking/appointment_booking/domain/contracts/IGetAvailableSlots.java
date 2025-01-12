@@ -1,8 +1,8 @@
 package com.booking.appointment_booking.domain.contracts;
 
-import java.util.List;
+import java.util.Date;
 import java.util.UUID;
 
 public interface IGetAvailableSlots {
-    public List<UUID> getAvailableSlots();
+    boolean isSlotAvailable(UUID slotId, Date reservedAt);
 }

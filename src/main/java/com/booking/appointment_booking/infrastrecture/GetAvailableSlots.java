@@ -1,18 +1,20 @@
 package com.booking.appointment_booking.infrastrecture;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Date;
 import java.util.UUID;
+
+import org.springframework.stereotype.Service;
 
 import com.booking.appointment_booking.domain.contracts.IGetAvailableSlots;
 
+@Service
 public class GetAvailableSlots implements IGetAvailableSlots {
 
     @Override
-    public List<UUID> getAvailableSlots() {
-        // Fetch available slots from the DoctorAvailability module
+    public boolean isSlotAvailable(UUID slotID ,Date reservedAt) {
+        // Check if slot is  available on reserved date from the DoctorAvailability module
         // Replace this with actual logic to retrieve data
-        return List.of(UUID.randomUUID(), UUID.randomUUID()); // Example slots
+        return true; // Example slots
     }
 
 }
