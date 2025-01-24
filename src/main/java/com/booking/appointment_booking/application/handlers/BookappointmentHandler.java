@@ -3,6 +3,7 @@ package com.booking.appointment_booking.application.handlers;
 import org.springframework.stereotype.Service;
 
 import com.booking.appointment_booking.application.dtos.*;
+import com.booking.appointment_booking.contacts.BookAppointmentResponse;
 import com.booking.appointment_booking.domain.contracts.IBookAppointmentRepository;
 import com.booking.appointment_booking.domain.contracts.IGetAvailableSlots;
 import com.booking.appointment_booking.domain.models.BookAppointment;

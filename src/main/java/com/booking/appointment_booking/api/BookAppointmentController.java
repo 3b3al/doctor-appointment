@@ -4,9 +4,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.booking.appointment_booking.application.dtos.BookAppointmentResponse;
 import com.booking.appointment_booking.application.dtos.BookappointmentRequest;
 import com.booking.appointment_booking.application.handlers.BookappointmentHandler;
+import com.booking.appointment_booking.contacts.BookAppointmentResponse;
 
 import lombok.AllArgsConstructor;
 
