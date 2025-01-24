@@ -7,11 +7,16 @@ import com.booking.appointment_booking.domain.models.BookAppointment;
 
 @Repository
 public class BookAppointmentRepository implements IBookAppointmentRepository{
+    private final BookAppointmentPublisher publisher;
+
+    public BookAppointmentRepository(BookAppointmentPublisher publisher) {
+        this.publisher = publisher;
+    }
 
     @Override
     public void save(BookAppointment bookAppointment) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'save'");
+        System.out.println("BookAppointmentRepository.save");
+        bookAppointment.getEvents().forEach(publisher::publish);
     }
         
 }
