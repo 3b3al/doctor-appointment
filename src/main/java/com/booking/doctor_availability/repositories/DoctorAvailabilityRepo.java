@@ -5,7 +5,7 @@ import java.util.UUID;
 
 import org.springframework.stereotype.Repository;
 
-import com.booking.doctor_availability.dtos.DoctorAvailabilityResponse;
+import com.booking.doctor_availability.contacts.DoctorAvailabilityResponse;
 import com.booking.doctor_availability.models.DoctorAvailability;
 
 
