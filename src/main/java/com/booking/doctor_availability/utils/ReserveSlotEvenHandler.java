@@ -11,21 +11,23 @@ import com.booking.shared.IEventBus;
 @Configuration
 public class ReserveSlotEvenHandler {
     private final IEventBus eventBus;
-    private DoctorAvailabilityRepo doctorAvailabilityRepo;
+    private final DoctorAvailabilityRepo doctorAvailabilityRepo;
 
-    public ReserveSlotEvenHandler(IEventBus eventBus) {
+    public ReserveSlotEvenHandler(IEventBus eventBus , DoctorAvailabilityRepo doctorAvailabilityRepo) {
         this.eventBus = eventBus;
+        this.doctorAvailabilityRepo = doctorAvailabilityRepo;
     }
 
     @Bean
-    public void subscribe() {
+    public Runnable subscribe() {
         eventBus.subscribe(this ,BookAppointmentResponse.class, this::handle);
+        return () -> System.out.println("Subscribed to ReserveSlotEvent");
     }
 
     public CompletableFuture<Void> handle(BookAppointmentResponse reserveSlotDto) {
         System.out.println("Slot reserved: " + reserveSlotDto.slotId());
         doctorAvailabilityRepo.updateDoctorAvailability(reserveSlotDto.slotId());
-        return CompletableFuture.completedFuture(null);
+        return null;
     }
 
 }
