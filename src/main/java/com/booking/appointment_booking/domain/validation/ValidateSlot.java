@@ -8,7 +8,7 @@ import com.booking.appointment_booking.domain.contracts.IGetAvailableSlots;
 public record ValidateSlot(UUID slotId){
 
     public static ValidateSlot of(UUID slotId , Date reservedAt ,IGetAvailableSlots availableSlotsProvider) {
-        boolean isSlotAvailable = availableSlotsProvider.isSlotAvailable(slotId ,reservedAt);
+        boolean isSlotAvailable = availableSlotsProvider.isSlotAvailable(slotId);
 
         if(!isSlotAvailable){
             throw new IllegalArgumentException("Slot is not available");
