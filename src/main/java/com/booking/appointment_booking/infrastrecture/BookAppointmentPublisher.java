@@ -1,10 +1,13 @@
 package com.booking.appointment_booking.infrastrecture;
 
+import org.springframework.stereotype.Component;
+
 import com.booking.appointment_booking.contacts.BookAppointmentResponse;
 import com.booking.appointment_booking.domain.models.BookAppointmentEvent;
 import com.booking.appointment_booking.domain.models.ReserveSlot;
 import com.booking.shared.IEventBus;
 
+@Component
 public class BookAppointmentPublisher {
     private final IEventBus eventBus;
 
