@@ -18,7 +18,7 @@ public class BookAppointmentEventHandler {
         this.getAvailableSlots = getAvailableSlots;
     }
 
-    @Bean
+    @Bean(name = "appointmentCancellationSubscriber")
     public Runnable subscribe() {
         eventBus.subscribe(this, AppointmentCancelledEvent.class, this::handleCancellation);
         return () -> System.out.println("Subscribed to AppointmentCancelledEvent");

@@ -18,7 +18,7 @@ public class ReserveSlotEvenHandler {
         this.doctorAvailabilityRepo = doctorAvailabilityRepo;
     }
 
-    @Bean
+    @Bean(name = "reserveSlotSubscriber")
     public Runnable subscribe() {
         eventBus.subscribe(this ,BookAppointmentResponse.class, this::handle);
         return () -> System.out.println("Subscribed to ReserveSlotEvent");
