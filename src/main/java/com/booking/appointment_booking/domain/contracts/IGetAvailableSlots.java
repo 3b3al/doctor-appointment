@@ -13,4 +13,5 @@ import com.booking.doctor_availability.contacts.DoctorAvailabilityResponse;
 public interface IGetAvailableSlots {
     boolean isSlotAvailable(UUID slotId);
     List<DoctorAvailabilityResponse> getAllAvailableSlots();
+    void updateSlotAvailability(UUID slotId, boolean isAvailable);
 }

@@ -11,7 +11,7 @@ import com.booking.doctor_availability.contacts.GetAllAvailableSlots;
 
 @Service
 public class GetAvailableSlots implements IGetAvailableSlots {
-        private final GetAllAvailableSlots getAllAvailableSlots;
+    private final GetAllAvailableSlots getAllAvailableSlots;
 
     public GetAvailableSlots(GetAllAvailableSlots getAllAvailableSlots) {
         this.getAllAvailableSlots = getAllAvailableSlots;
@@ -34,4 +34,9 @@ public class GetAvailableSlots implements IGetAvailableSlots {
         return getAllAvailableSlots.getAllAvailableSlots();
     }
 
+    @Override
+    public void updateSlotAvailability(UUID slotId, boolean isAvailable) {
+        System.out.println("Updating slot availability for slot: " + slotId + " to: " + isAvailable);
+        // TODO: Implement actual update logic with doctor availability module
+    }
 }
